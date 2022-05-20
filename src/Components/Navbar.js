@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 export default function Navbar(props) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      >
         <a className="navbar-brand" href="/">
           {props.title}
         </a>
@@ -33,20 +35,17 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
+          <div className="custom-control custom-switch">
             <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
+              type="checkbox"
+              className="custom-control-input"
+              onClick={props.toggleMode}
+              id="customSwitch1"
             />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
+            <label className="custom-control-label" for="customSwitch1">
+              Enable Dark Mode
+            </label>
+          </div>
         </div>
       </nav>
     </>
